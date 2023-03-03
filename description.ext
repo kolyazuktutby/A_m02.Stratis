@@ -1,0 +1,161 @@
+#include "\A3\Missions_F_EPA\Campaign\Missions\description.hpp"
+#include "\A3\Missions_F_EPA\Campaign_shared\cfgCharacters.hpp"
+
+SET_MISSION_META(A,A_m02,G,$STR_A3_A_m02_Mission_Name,$STR_A3_A_m02_Overview)
+
+dev = "Zipper";
+
+class CfgDebriefing
+{
+	class A_hub01_1
+	{
+		description = $STR_A3_A_m02_Debriefing_A_hub01_1_description;
+	};
+
+	class A_hub01_2
+	{
+		description = $STR_A3_A_m02_Debriefing_A_hub01_2_description;
+	};
+
+	class A_m02_1
+	{
+		subtitle = $STR_A3_A_m02_Debriefing_A_m02_1_subtitle;
+	};
+};
+
+class Characters:TemplateCharacters
+{
+	// Player
+	class BIS_inf:Player
+	{
+		identity = "EPA_B_Kerry";
+		appearance = "B_Story_Protagonist_F";
+
+		primaryWeapon[] =
+		{
+			{
+				"arifle_MX_GL_Holo_pointer_snds_F",
+				"30Rnd_65x39_caseless_mag", 		{5,5},
+				"1Rnd_HE_Grenade_shell", 		{4,4}
+			},
+
+			{
+				"arifle_Katiba_GL_ACO_pointer_F",
+				"30Rnd_65x39_caseless_green", 		{5,5},
+				"1Rnd_HE_Grenade_shell", 		{5,6}
+			},
+			{
+				"arifle_MX_GL_ACO_F",
+				"30Rnd_65x39_caseless_mag", 		{5,5},
+				"1Rnd_HE_Grenade_shell", 		{4,4}
+			},
+			{
+				"arifle_TRG21_GL_ACO_pointer_F",
+				"30Rnd_556x45_Stanag", 			{7,8},
+				"1Rnd_HE_Grenade_shell", 		{4,6}
+			},
+			{
+				"arifle_Mk20_GL_ACO_F",
+				"30Rnd_556x45_Stanag", 			{7,8},
+				"1Rnd_HE_Grenade_shell", 		{4,6}
+			},
+			{
+				"arifle_MX_GL_ACO_pointer_F",
+				"30Rnd_65x39_caseless_mag", 		{5,5},
+				"1Rnd_HE_Grenade_shell", 		{4,4}
+			}
+		};
+
+		handgun[] =
+		{
+			{"hgun_P07_F","16Rnd_9x21_Mag",2}
+		};
+
+		remove[] =
+		{
+			"weapons",
+			"NVGoggles"
+		};
+
+		add[] =
+		{
+			{"magazine","HandGrenade",2},
+			{"magazine","SmokeShell"}
+		};
+
+		required[] =
+		{
+			{"pweapon*", "arifle_mx_aco_f"},
+			{"vest*", "v_platecarrier_kerry"},
+			{"item","map",1,"equip"},
+			{"item","radio",1,"equip"}
+		};
+	};
+
+	// Bravo Lead
+	class BIS_BLU8:JoinedNP
+	{
+		identity = "EPA_B_Lacey";
+		appearance = "B_Soldier_F";
+
+		remove[] =
+		{
+			"NVGoggles"
+		};
+
+		add[] =
+		{
+			{"headgear", "H_Cap_blk"},
+			{"uniform", "U_B_CombatUniform_mcam_tshirt"}
+		};
+	};
+
+	// Charlie Lead
+	class BIS_BLU3:OtherSquad
+	{
+		identity = "EPA_B_Mitchell";
+		appearance = "B_Soldier_TL_F";
+	};
+
+	// Commanding Officer
+	class BIS_BLU5:OtherSquad
+	{
+		identity = "EPA_B_Conway";
+		appearance = "B_Soldier_TL_F";
+
+		primaryWeapon[] =
+		{
+			{
+				"arifle_MX_GL_ACO_F",
+				"30Rnd_65x39_caseless_mag", 6,
+				"30Rnd_65x39_caseless_mag_Tracer", 2,
+				"1Rnd_HE_Grenade_shell", 6,
+				"1Rnd_Smoke_Grenade_shell",
+				"1Rnd_SmokeBlue_Grenade_shell",
+				"1Rnd_SmokeGreen_Grenade_shell",
+				"1Rnd_SmokeOrange_Grenade_shell"
+			}
+		};
+	};
+
+	// Autorifleman
+	class BIS_BLU6:OtherSquad
+	{
+		identity = "EPA_B_Armstrong";
+		appearance = "B_soldier_AR_F";
+	};
+
+	// Grenadier
+	class BIS_BLU7:OtherSquad
+	{
+		identity = "EPA_B_Nichols";
+		appearance = "B_Soldier_GL_F";
+	};
+
+	// Combat Life Saver
+	class BIS_BLU1:OtherSquad
+	{
+		identity = "EPA_B_Larkin";
+		appearance = "B_medic_F";
+	};
+};

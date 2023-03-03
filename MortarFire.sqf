@@ -1,0 +1,32 @@
+Hint "script started";
+unassignVehicle gunnernato;
+[BIS_IA_mortar1] joinSilent gunnernato;
+gunnernato assignAsGunner BIS_IA_mortar1;
+BIS_IA_mortar1 setVehicleAmmo 1;
+[gunnernato] orderGetIn true;
+
+
+
+while {   count (magazinesAmmo BIS_IA_mortar1) > 1} do
+	{
+		_tgt1 = [(getMarkerPos "BIS_UAV2" select 0) + (random 120), (getMarkerPos "BIS_UAV2" select 1) + (random 120), 0]; 
+		_ammo1 = getArtilleryAmmo[BIS_IA_mortar1] select 0;
+		BIS_IA_mortar1 doArtilleryFire[_tgt1,_ammo1,1];
+		Sleep 5;
+	};
+							
+							
+		
+			
+	// Checking mortars have explosive rounds
+	if (count (magazinesAmmo BIS_IA_mortar1) == 1 ) then
+	{
+		
+		Hint "No explosive rounds!";
+		gunnernato leaveVehicle BIS_IA_mortar1;
+		gunnernato doMove (getMarkerPos "BIS_UAV1");
+		gunnernato setSpeedMode "FULL";
+		
+	};
+
+
