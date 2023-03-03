@@ -3,9 +3,9 @@
 	_selfpos = getPos gunind;
 	_selfposx = getPos gunind select 0;
 	_selfposy = getPos gunind select 1;
+	_check_not_crew = 0;
 	_gunner = gunnerind1;
 	private _gunnergroup = createGroup [east, false];
-	[_gunner] join _gunnergroup;
 		
 	while {   count (magazinesAmmo gunind) > 1 && count (units alp33_ind) > 1  } do
 		{
@@ -24,29 +24,11 @@
 								
 						_target = _thislist select _i;
 						//assign new gunner if gunnerind1 not alive
-						if (count (crew gunind) == 0 &&   count (magazinesAmmo gunind) > 1 && alive gunind && count (units _gunnergroup) == 0) then
+						if (count (crew gunind) == 0 &&   count (magazinesAmmo gunind) > 1 && alive gunind && _check_not_crew == 0 ) then
 						{
 							Hint "gunner 2 killed";
-													
-							//Find nearest unit to place at gunner seat
-							
-							_mindistancegunner = 1000;
-							for [{ _j = 0 }, { _j <  count (units alp33_ind) }, { _j = _j + 1 }] do 
-							{ 
-								_gunnerposx = (getPos ((units alp33_ind) select _j) select 0);
-								_gunnerposy = (getPos ((units alp33_ind) select _j) select 1) ;
-								_distancex = abs (_gunnerposx - _selfposx);
-								_distancey = abs (_gunnerposy - _selfposy);
-								_distancegunner = sqrt (_distancex^2 + _distancey^2);
-								if (_mindistancegunner > _distancegunner) then
-								{
-								_mindistancegunner = _distancegunner;
-								_gunner =  (units alp33_ind) select _j;
-								};
-							};
-							
-							
-							//_gunner =  selectRandom  (units alp33_ind);
+							_check_not_crew = 1;
+							_gunner =  selectRandom  (units alp33_ind);
 							[_gunner] join _gunnergroup;
 							_gunner setSpeedMode "FULL";
 							_gunner doMove (position gunind);
@@ -57,9 +39,10 @@
 							Hint "promoted new gunner";
 													
 						};
-							
+						if (count (units _gunnergroup) == 0) then {_check_not_crew = 0;};
 						
-						if (  heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2   ) then 
+						
+						if (  heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind_lead knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2   ) then 
 						{
 						
 							//Don't fire near mortar
