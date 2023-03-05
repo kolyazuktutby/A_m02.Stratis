@@ -16,7 +16,7 @@
 				{
 								
 						_target = _thislist select _i;
-						if ( && count (crew BIS_IA_mortar1) > 0 &&(  alp24indComm knowsAbout _target > 2 || alp25indComm knowsAbout _target > 2 || alp22indComm knowsAbout _target > 2 || at_nyx_comm knowsAbout _target > 1 || strider1C knowsAbout _target > 1  )  ) then 
+						if ( count (crew BIS_IA_mortar1) > 0 &&(  alp24indComm knowsAbout _target > 2 || alp25indComm knowsAbout _target > 2 || alp22indComm knowsAbout _target > 2 || at_nyx_comm knowsAbout _target > 1 || strider1C knowsAbout _target > 1  )  ) then 
 						{
 						
 							Hint "Response independent mortar fire";
