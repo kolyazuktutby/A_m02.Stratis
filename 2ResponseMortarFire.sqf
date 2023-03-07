@@ -9,83 +9,88 @@
 		
 	while {   count (magazinesAmmo gunind) > 1 && count (units alp33_ind) > 1  } do
 		{
-				
+			private _targetlist = [];	
 			private _thislist = (list triggermortarind);
 			private _target = _thislist select 0;
 			private _count = (count _thislist);
-			_check_knows = 0;
 			_i = 0;
-			
-			while {   _i < _count-1 && _check_knows == 0 } do
-			{
-						
-			if ( !isNil {_thislist select _i} && alive (_thislist select _i)  )	then 
+			//assign new gunner if gunnerind1 not alive
+			if (count (crew gunind) == 0 &&   count (magazinesAmmo gunind) > 1 && alive gunind && count (units _gunnergroup) == 0) then
 				{
-								
-						_target = _thislist select _i;
-						//assign new gunner if gunnerind1 not alive
-						if (count (crew gunind) == 0 &&   count (magazinesAmmo gunind) > 1 && alive gunind && count (units _gunnergroup) == 0) then
-						{
-							Hint "gunner 2 killed";
+					Hint "gunner 2 killed";
 													
-							//Find nearest unit to place at gunner seat
+					//Find nearest unit to place at gunner seat
 							
-							_mindistancegunner = 1000;
-							for [{ _j = 0 }, { _j <  count (units alp33_ind) }, { _j = _j + 1 }] do 
-							{ 
-								_gunnerposx = (getPos ((units alp33_ind) select _j) select 0);
-								_gunnerposy = (getPos ((units alp33_ind) select _j) select 1) ;
-								_distancex = abs (_gunnerposx - _selfposx);
-								_distancey = abs (_gunnerposy - _selfposy);
-								_distancegunner = sqrt (_distancex^2 + _distancey^2);
-								if (_mindistancegunner > _distancegunner) then
-								{
-								_mindistancegunner = _distancegunner;
-								_gunner =  (units alp33_ind) select _j;
-								};
+					_mindistancegunner = 1000;
+					for [{ _j = 0 }, { _j <  count (units alp33_ind) }, { _j = _j + 1 }] do 
+						{ 
+							_gunnerposx = (getPos ((units alp33_ind) select _j) select 0);
+							_gunnerposy = (getPos ((units alp33_ind) select _j) select 1) ;
+							_distancex = abs (_gunnerposx - _selfposx);
+							_distancey = abs (_gunnerposy - _selfposy);
+							_distancegunner = sqrt (_distancex^2 + _distancey^2);
+							if (_mindistancegunner > _distancegunner) then
+							{
+							_mindistancegunner = _distancegunner;
+							_gunner =  (units alp33_ind) select _j;
 							};
-							
-							
-							//_gunner =  selectRandom  (units alp33_ind);
-							[_gunner] join _gunnergroup;
-							_gunner setSpeedMode "FULL";
-							_gunner doMove (position gunind);
-							_gunner assignAsGunner gunind;
-							_gunner in gunind;
-							[_gunner] orderGetIn true;
-							
-							Hint "promoted new gunner";
-													
 						};
 							
-						
-						if (  heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2   ) then 
+							
+						//_gunner =  selectRandom  (units alp33_ind);
+						[_gunner] join _gunnergroup;
+						_gunner setSpeedMode "FULL";
+						_gunner doMove (position gunind);
+						_gunner assignAsGunner gunind;
+						_gunner in gunind;
+						[_gunner] orderGetIn true;
+							
+						Hint "promoted new gunner";
+													
+				};
+			// End assign newgunner block
+			
+			
+			
+			
+			for [{ private _i = 0 }, { _i < _count }, { _i = _i + 1 }] do 
+			{ 
+			if (!isNil {_thislist select _i}  && alive (_thislist select _i) )	then 
+				{
+				
+						_target = _thislist select _i;
+				
+						if ( alp11ind_lead knowsAbout _target > 1 || heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2  || alp13ind_lead knowsAbout _target > 2 ) then 
 						{
-						
-							//Don't fire near mortar
 							_tgt2posx = (getPos _target select 0)  + ((random 30) - 60);
 							_tgt2posy = (getPos _target select 1)  + ((random 30) - 60);
 							_distancex = abs (_tgt2posx - _selfposx);
 							_distancey = abs (_tgt2posy - _selfposy);
-														
-							if (  _distancex > 40 && _distancey > 40 && count (crew gunind) > 0 ) then
+							if (_distancex > 40 && _distancey > 40) then
+							{
+								_targetlist pushBack _target;
+							};
+						
+						};
+							
+				};
+		
+			};
+			
+			//Mortar fire
+			if (  count _targetlist > 0 ) then
 							{
 								Hint "Response independent mortar2 fire";
+								_victim = (selectRandom _targetlist);
+								_tgt2posx = (getPos _victim select 0)  + ((random 30) - 60);
+								_tgt2posy = (getPos _victim select 1)  + ((random 30) - 60);
 								_tgt2 = [ _tgt2posx, _tgt2posy, 0]; 
 								_ammo2 = getArtilleryAmmo[gunind] select 0;
 								gunind doArtilleryFire[_tgt2,_ammo2,1];
-								_check_knows = 1;
-								Sleep 10;
-													
+																			
 							};
-									
-						
-						};
-														
-				};
 			
-			_i = _i + 1;
-			};
+			Sleep 15;
 			
 		};
 							
@@ -93,7 +98,7 @@
 if (count (units _gunnergroup) > 0) then
 	{
 	_gunnergroup leaveVehicle gunind;
-	_gunnergroup doMove (getMarkerPos "BIS_UAV1");
+	_gunnergroup move (getMarkerPos "BIS_UAV1");
 	}
 
 	

@@ -1,4 +1,5 @@
 Hint "script started";
+
 unassignVehicle gunnernato;
 [BIS_IA_mortar1] joinSilent gunnernato;
 gunnernato assignAsGunner BIS_IA_mortar1;
