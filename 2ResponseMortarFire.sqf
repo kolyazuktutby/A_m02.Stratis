@@ -59,7 +59,7 @@
 						};
 							
 						
-						if (  heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2   ) then 
+						if ( alp11ind_lead knowsAbout _target > 1 || heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2  || alp13ind_lead knowsAbout _target > 2  ) then 
 						{
 						
 							//Don't fire near mortar
@@ -68,15 +68,14 @@
 							_distancex = abs (_tgt2posx - _selfposx);
 							_distancey = abs (_tgt2posy - _selfposy);
 														
-							if (  _distancex > 40 && _distancey > 40 && count (crew gunind) > 0 ) then
+							if (  _distancex > 40 && _distancey > 40 && count (crew gunind) > 0 && alive _target) then
 							{
 								Hint "Response independent mortar2 fire";
 								_tgt2 = [ _tgt2posx, _tgt2posy, 0]; 
 								_ammo2 = getArtilleryAmmo[gunind] select 0;
 								gunind doArtilleryFire[_tgt2,_ammo2,1];
-								_check_knows = 1;
-								Sleep 10;
-													
+								Sleep 15;
+								_check_knows = 1;					
 							};
 									
 						
@@ -93,7 +92,5 @@
 if (count (units _gunnergroup) > 0) then
 	{
 	_gunnergroup leaveVehicle gunind;
-	_gunnergroup doMove (getMarkerPos "BIS_UAV1");
+	_gunnergroup move (getMarkerPos "BIS_UAV1");
 	}
-
-	
