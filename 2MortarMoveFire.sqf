@@ -1,6 +1,6 @@
-{_x setpos (getWPPos [alp32_nato, 1])} foreach units alp32_nato;
-{_x setpos (getWPPos [alp23_nato, 1])} foreach units alp23_nato;
-{_x setpos (getWPPos [alp25_nato, 1])} foreach units alp25_nato;
+//{_x setpos (getWPPos [alp32_nato, 1])} foreach units alp32_nato;
+//{_x setpos (getWPPos [alp23_nato, 1])} foreach units alp23_nato;
+//{_x setpos (getWPPos [alp25_nato, 1])} foreach units alp25_nato;
 
 
 offroadnatoD doMove (getMarkerPos "marker_1");
