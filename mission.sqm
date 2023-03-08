@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2100.1128,91.808838,3814.9163};
-		dir[]={-0.41401035,-0.45884678,-0.78617084};
-		up[]={-0.21380441,0.88851321,-0.40599588};
-		aside[]={-0.88481426,5.2154064e-008,0.46595785};
+		pos[]={2147.1694,57.85878,2347.4412};
+		dir[]={-0.71921867,-0.44380867,0.53460681};
+		up[]={-0.35619801,0.89611411,0.26476789};
+		aside[]={0.59657717,-4.6187779e-007,0.80258965};
 	};
 };
 binarizationWanted=0;
@@ -2725,8 +2725,8 @@ class Mission
 						};
 						class Attribute1
 						{
-							property="face";
-							expression="_this setface _value;";
+							property="enableStamina";
+							expression="_this enablestamina _value;";
 							class Value
 							{
 								class data
@@ -2735,10 +2735,10 @@ class Mission
 									{
 										type[]=
 										{
-											"STRING"
+											"BOOL"
 										};
 									};
-									value="";
+									value=1;
 								};
 							};
 						};
@@ -2763,8 +2763,8 @@ class Mission
 						};
 						class Attribute3
 						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
+							property="face";
+							expression="_this setface _value;";
 							class Value
 							{
 								class data
@@ -2773,10 +2773,10 @@ class Mission
 									{
 										type[]=
 										{
-											"BOOL"
+											"STRING"
 										};
 									};
-									value=1;
+									value="";
 								};
 							};
 						};
@@ -17239,7 +17239,6 @@ class Mission
 					};
 					showWP="NEVER";
 					id=235;
-					atlOffset=0.32577705;
 				};
 			};
 			class Attributes
@@ -32297,7 +32296,7 @@ class Mission
 					};
 					id=1078;
 					type="I_soldier_F";
-					atlOffset=2.5242717;
+					atlOffset=2.5243518;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -32357,7 +32356,7 @@ class Mission
 					};
 					id=1079;
 					type="rhssaf_army_m10_digital_sniper_m76";
-					atlOffset=0.20372963;
+					atlOffset=0.20367622;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -32417,7 +32416,7 @@ class Mission
 					};
 					id=1080;
 					type="rhssaf_army_m10_digital_gl";
-					atlOffset=0.20382643;
+					atlOffset=0.20377302;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -32749,7 +32748,7 @@ class Mission
 					};
 					id=1184;
 					type="rhsgref_ins_g_rifleman";
-					atlOffset=0.00028610229;
+					atlOffset=0.00017356873;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -33262,7 +33261,7 @@ class Mission
 			};
 			id=1077;
 			type="I_HMG_01_high_F";
-			atlOffset=2.5242717;
+			atlOffset=2.5243518;
 		};
 		class Item139
 		{
@@ -35029,7 +35028,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1155;
-					atlOffset=0.00044345856;
+					atlOffset=0.00048923492;
 				};
 			};
 			class Attributes
@@ -35221,7 +35220,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1173;
-					atlOffset=0.0036230087;
+					atlOffset=0.0036697388;
 				};
 			};
 			class Attributes
@@ -35586,7 +35585,7 @@ class Mission
 			};
 			id=1183;
 			type="rhsgref_ins_g_AGS30_TriPod";
-			atlOffset=0.00011348724;
+			atlOffset=9.5367432e-007;
 		};
 		class Item150
 		{

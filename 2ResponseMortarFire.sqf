@@ -81,16 +81,20 @@
 			if (  count _targetlist > 0 ) then
 							{
 								Hint "Response independent mortar2 fire";
+								for [{ _j = 0 }, { _j <  3 }, { _j = _j + 1 }] do 
+								{
+								
 								_victim = (selectRandom _targetlist);
-								_tgt2posx = (getPos _victim select 0)  + ((random 30) - 60);
-								_tgt2posy = (getPos _victim select 1)  + ((random 30) - 60);
+								_tgt2posx = (getPos _victim select 0)  + ((random 40) - 80);
+								_tgt2posy = (getPos _victim select 1)  + ((random 40) - 80);
 								_tgt2 = [ _tgt2posx, _tgt2posy, 0]; 
 								_ammo2 = getArtilleryAmmo[gunind] select 0;
 								gunind doArtilleryFire[_tgt2,_ammo2,1];
-																			
+								Sleep 7;
+								};									
 							};
 			
-			Sleep 15;
+			Sleep 20;
 			
 		};
 							
