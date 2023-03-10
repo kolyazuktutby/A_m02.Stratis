@@ -17,11 +17,6 @@ while {   count (magazinesAmmo gunnato1) > 1} do
 		Sleep 5;
 	};
 
-
-
-
-
-
 	if (count (magazinesAmmo gunnato1) == 1 ) then
 	{
 		
