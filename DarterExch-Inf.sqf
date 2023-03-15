@@ -55,6 +55,7 @@ while {alive darter1 || alive darter2 } do
 				
 		alp24_nato_lead  groupChat "Darter1 reveal target";
 		alp22_nato_lead groupChat "Darter1 reveal target";
+		
 		Sleep 0.3;
 
 		};

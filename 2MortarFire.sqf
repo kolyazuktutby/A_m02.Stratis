@@ -1,5 +1,5 @@
 //Give darter time to reveal the target 
-	Sleep 20;
+	Sleep 5;
 	
 	while {   count (magazinesAmmo gunnato1) > 1} do
 			{

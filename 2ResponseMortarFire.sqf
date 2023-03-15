@@ -90,7 +90,7 @@
 								_tgt2 = [ _tgt2posx, _tgt2posy, 0]; 
 								_ammo2 = getArtilleryAmmo[gunind] select 0;
 								gunind doArtilleryFire[_tgt2,_ammo2,1];
-								Sleep 7;
+								Sleep 10;
 								};									
 							};
 			
