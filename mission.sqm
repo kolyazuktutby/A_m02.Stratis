@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=129;
 	class ItemIDProvider
 	{
 		nextID=1198;
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2114.3855,93.286766,3812.8984};
-		dir[]={-0.40549472,-0.44941443,-0.79614753};
-		up[]={-0.20399304,0.89329547,-0.40051571};
-		aside[]={-0.89120126,1.5250698e-006,0.45391262};
+		pos[]={2130.3101,113.91061,3782.8};
+		dir[]={0.25473234,-0.23626493,-0.93783748};
+		up[]={0.061952718,0.97166592,-0.22809485};
+		aside[]={-0.96516871,6.4836058e-007,-0.26215139};
 	};
 };
 binarizationWanted=0;
@@ -2733,8 +2733,8 @@ class Mission
 						};
 						class Attribute1
 						{
-							property="face";
-							expression="_this setface _value;";
+							property="enableStamina";
+							expression="_this enablestamina _value;";
 							class Value
 							{
 								class data
@@ -2743,10 +2743,10 @@ class Mission
 									{
 										type[]=
 										{
-											"STRING"
+											"BOOL"
 										};
 									};
-									value="";
+									value=1;
 								};
 							};
 						};
@@ -2771,8 +2771,8 @@ class Mission
 						};
 						class Attribute3
 						{
-							property="enableStamina";
-							expression="_this enablestamina _value;";
+							property="face";
+							expression="_this setface _value;";
 							class Value
 							{
 								class data
@@ -2781,10 +2781,10 @@ class Mission
 									{
 										type[]=
 										{
-											"BOOL"
+											"STRING"
 										};
 									};
-									value=1;
+									value="";
 								};
 							};
 						};
@@ -12860,7 +12860,7 @@ class Mission
 					};
 					id=170;
 					type="B_Soldier_F";
-					atlOffset=0.00080490112;
+					atlOffset=0.0008392334;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12946,7 +12946,7 @@ class Mission
 			{
 			};
 			id=169;
-			atlOffset=0.00080490112;
+			atlOffset=0.0008392334;
 		};
 		class Item78
 		{
@@ -12974,7 +12974,7 @@ class Mission
 					};
 					id=175;
 					type="B_Soldier_GL_F";
-					atlOffset=0.00032043457;
+					atlOffset=0.00035476685;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13023,7 +13023,7 @@ class Mission
 			{
 			};
 			id=174;
-			atlOffset=0.00032043457;
+			atlOffset=0.00035476685;
 		};
 		class Item79
 		{
@@ -13053,7 +13053,7 @@ class Mission
 					};
 					id=177;
 					type="B_soldier_AR_F";
-					atlOffset=0.26694679;
+					atlOffset=0.26698112;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13102,7 +13102,7 @@ class Mission
 			{
 			};
 			id=176;
-			atlOffset=0.26694679;
+			atlOffset=0.26698112;
 		};
 		class Item80
 		{
@@ -32450,7 +32450,7 @@ class Mission
 					};
 					id=1078;
 					type="I_soldier_F";
-					atlOffset=2.5243249;
+					atlOffset=2.5243518;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -33365,7 +33365,7 @@ class Mission
 				};
 			};
 			id=1070;
-			atlOffset=2.5247006;
+			atlOffset=0.00035572052;
 		};
 		class Item136
 		{
@@ -33376,14 +33376,14 @@ class Mission
 				angles[]={0,0.83177155,6.2820859};
 			};
 			side="Independent";
-			flags=2;
+			flags=6;
 			class Attributes
 			{
 				lock="UNLOCKED";
 			};
 			id=1071;
 			type="rhssaf_army_nsv_tripod";
-			atlOffset=2.5247006;
+			atlOffset=0.00035572052;
 		};
 		class Item137
 		{
@@ -33420,7 +33420,7 @@ class Mission
 			};
 			id=1077;
 			type="I_HMG_01_high_F";
-			atlOffset=2.5243249;
+			atlOffset=2.5243518;
 		};
 		class Item139
 		{
@@ -34548,7 +34548,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1136;
-					atlOffset=1.0252194;
+					atlOffset=1.0252361;
 				};
 			};
 			class Attributes
@@ -35287,7 +35287,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1155;
-					atlOffset=0.00044345856;
+					atlOffset=0.00048923492;
 				};
 			};
 			class Attributes
@@ -35443,7 +35443,7 @@ class Mission
 					speed="FULL";
 					combat="CARELESS";
 					expCond="call{true}";
-					expActiv="call{gunind setVehicleAmmo 1;" \n "}";
+					expActiv="call{gunind setVehicleAmmo 1;" \n "execVM ""2ResponseMortarFireNewTeam.sqf"";}";
 					class Effects
 					{
 					};
@@ -35479,7 +35479,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1173;
-					atlOffset=0.0036230087;
+					atlOffset=0.0036697388;
 				};
 			};
 			class Attributes
@@ -35847,7 +35847,7 @@ class Mission
 			};
 			id=1183;
 			type="rhsgref_ins_g_AGS30_TriPod";
-			atlOffset=9.5367432e-007;
+			atlOffset=0.001209259;
 		};
 		class Item150
 		{

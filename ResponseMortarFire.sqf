@@ -1,8 +1,38 @@
 //Make response artillery fire by independent side
+	private _gunnergroup = createGroup [east, false];
+	_gunner = gunnerind;
+	private _gunnergroup = createGroup [east, false];
+	[_gunner] join _gunnergroup;
 	
-	while {   count (magazinesAmmo BIS_IA_mortar1) > 1 && alive gunnerind} do
+	
+	while {   count (magazinesAmmo BIS_IA_mortar1) > 1 && (count (units alp22ind) > 1 ||  alive gunnerind) } do        
 			{
+				
+			//assign new gunner if gunnerind not alive
+			if (count (crew BIS_IA_mortar1) == 0 &&   count (magazinesAmmo BIS_IA_mortar1) > 1 && count (units _gunnergroup) == 0) then
+				{
+					Hint "gunner 1 killed";
+													
+					//Assign random unit to place at gunner seat
+											
+						_gunner =  selectRandom  (units alp22ind);
+						[_gunner] join _gunnergroup;
+						_gunner setSpeedMode "FULL";
+						_gunner doMove (position BIS_IA_mortar1);
+						_gunner assignAsGunner BIS_IA_mortar1;
+						_gunner in BIS_IA_mortar1;
+						[_gunner] orderGetIn true;
 							
+						Hint "promoted new gunner to mortar 1";
+													
+				};
+			// End assign newgunner block
+
+
+
+
+			//Mortar fire
+				
 			private _thislist = (list triggermortarind);
 			private _target = _thislist select 0;
 			private _count = (count _thislist);
