@@ -1,4 +1,4 @@
-	if {   count (units alp33_ind) < 2  && alive gunind } do
+	if {   count (units alp33_ind) < 2  && alive gunind && count (crew gunind) == 0} do
 		{	
 		//assign random  new gunner if gunnerind1 not alive
 			
