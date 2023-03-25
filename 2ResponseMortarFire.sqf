@@ -85,8 +85,8 @@
 								{
 								
 								_victim = (selectRandom _targetlist);
-								_tgt2posx = (getPos _victim select 0)  + ((random 100) - 50);
-								_tgt2posy = (getPos _victim select 1)  + ((random 100) - 50);
+								_tgt2posx = (getPos _victim select 0)  + ((random 80) - 40);
+								_tgt2posy = (getPos _victim select 1)  + ((random 80) - 40);
 								_tgt2 = [ _tgt2posx, _tgt2posy, 0]; 
 								_ammo2 = getArtilleryAmmo[gunind] select 0;
 								gunind doArtilleryFire[_tgt2,_ammo2,1];

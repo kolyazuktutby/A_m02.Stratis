@@ -14,7 +14,7 @@
 				
 			// End assign newgunner block	
 		
-			while {   count (magazinesAmmo gunind) > 1 &&  alive _gunner } do
+			while {   count (magazinesAmmo gunind) > 1 &&  alive _gunner) } do
 			{
 				
 			private _targetlist = [];	
