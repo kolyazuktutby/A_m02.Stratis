@@ -60,7 +60,7 @@
 				
 						_target = _thislist select _i;
 				
-						if ( NyxIndC knowsAbout _target > 1 || alp11ind_lead knowsAbout _target > 1 || heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2  || alp13ind_lead knowsAbout _target > 2 ) then 
+						if ( NyxIndC knowsAbout _target > 1 || alp11ind_lead knowsAbout _target > 1 || heli_lead knowsAbout _target > 1  || gunnerind1 knowsAbout _target > 1 || heli_pil knowsAbout _target > 1 || alp120pfComm knowsAbout _target > 1  || alp13_ind_lead knowsAbout _target > 2  || alp33_ind knowsAbout _target > 2  || alp12_ind_lead knowsAbout _target > 2  || alp13ind_lead knowsAbout _target > 2 || zu_ind_com knowsAbout _target > 2) then 
 						{
 							_tgt2posx = (getPos _target select 0)  + ((random 30) - 60);
 							_tgt2posy = (getPos _target select 1)  + ((random 30) - 60);
@@ -85,8 +85,8 @@
 								{
 								
 								_victim = (selectRandom _targetlist);
-								_tgt2posx = (getPos _victim select 0)  + ((random 80) - 40);
-								_tgt2posy = (getPos _victim select 1)  + ((random 80) - 40);
+								_tgt2posx = (getPos _victim select 0)  + ((random 100) - 50);
+								_tgt2posy = (getPos _victim select 1)  + ((random 100) - 50);
 								_tgt2 = [ _tgt2posx, _tgt2posy, 0]; 
 								_ammo2 = getArtilleryAmmo[gunind] select 0;
 								gunind doArtilleryFire[_tgt2,_ammo2,1];

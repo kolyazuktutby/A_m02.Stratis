@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2130.3101,113.91061,3782.8};
-		dir[]={0.25473234,-0.23626493,-0.93783748};
-		up[]={0.061952718,0.97166592,-0.22809485};
-		aside[]={-0.96516871,6.4836058e-007,-0.26215139};
+		pos[]={2249.0125,116.71269,3828.8152};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -6231,7 +6231,7 @@ class Mission
 								isBackpack=1;
 								class MagazineCargo
 								{
-									items=4;
+									items=7;
 									class Item0
 									{
 										name="6Rnd_45ACP_Cylinder";
@@ -6241,19 +6241,37 @@ class Mission
 									class Item1
 									{
 										name="rhsgref_5Rnd_792x57_kar98k";
-										count=12;
+										count=6;
 										ammoLeft=5;
 									};
 									class Item2
 									{
 										name="rhssaf_mag_br_m84";
-										count=1;
+										count=2;
 										ammoLeft=1;
 									};
 									class Item3
 									{
-										name="rhs_grenade_m1939e_f_mag";
-										count=2;
+										name="rhs_grenade_nbhgr39_mag";
+										count=3;
+										ammoLeft=1;
+									};
+									class Item4
+									{
+										name="rhs_grenade_mkii_mag";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item5
+									{
+										name="rhs_grenade_sthgr43_SSfrag_mag";
+										count=1;
+										ammoLeft=1;
+									};
+									class Item6
+									{
+										name="rhs_grenade_sthgr43_heerfrag_mag";
+										count=1;
 										ammoLeft=1;
 									};
 								};
@@ -11534,12 +11552,24 @@ class Mission
 								isBackpack=0;
 								class MagazineCargo
 								{
-									items=1;
+									items=3;
 									class Item0
 									{
 										name="10Rnd_Mk14_762x51_Mag";
-										count=2;
+										count=3;
 										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="rhsusf_20Rnd_762x51_m80_Mag";
+										count=1;
+										ammoLeft=20;
+									};
+									class Item2
+									{
+										name="rhssaf_mag_br_m75";
+										count=1;
+										ammoLeft=1;
 									};
 								};
 								class ItemCargo
@@ -12860,7 +12890,7 @@ class Mission
 					};
 					id=170;
 					type="B_Soldier_F";
-					atlOffset=0.0008392334;
+					atlOffset=0.00080490112;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12946,7 +12976,7 @@ class Mission
 			{
 			};
 			id=169;
-			atlOffset=0.0008392334;
+			atlOffset=0.00080490112;
 		};
 		class Item78
 		{
@@ -12974,7 +13004,7 @@ class Mission
 					};
 					id=175;
 					type="B_Soldier_GL_F";
-					atlOffset=0.00035476685;
+					atlOffset=0.00032043457;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13023,7 +13053,7 @@ class Mission
 			{
 			};
 			id=174;
-			atlOffset=0.00035476685;
+			atlOffset=0.00032043457;
 		};
 		class Item79
 		{
@@ -13053,7 +13083,7 @@ class Mission
 					};
 					id=177;
 					type="B_soldier_AR_F";
-					atlOffset=0.26698112;
+					atlOffset=0.26694679;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13102,7 +13132,7 @@ class Mission
 			{
 			};
 			id=176;
-			atlOffset=0.26698112;
+			atlOffset=0.26694679;
 		};
 		class Item80
 		{
@@ -32510,7 +32540,7 @@ class Mission
 					};
 					id=1079;
 					type="rhssaf_army_m10_digital_sniper_m76";
-					atlOffset=0.20367622;
+					atlOffset=0.20369959;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -32570,7 +32600,7 @@ class Mission
 					};
 					id=1080;
 					type="rhssaf_army_m10_digital_gl";
-					atlOffset=0.20377302;
+					atlOffset=0.20379591;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -33365,7 +33395,7 @@ class Mission
 				};
 			};
 			id=1070;
-			atlOffset=0.00035572052;
+			atlOffset=2.5247006;
 		};
 		class Item136
 		{
@@ -33376,14 +33406,14 @@ class Mission
 				angles[]={0,0.83177155,6.2820859};
 			};
 			side="Independent";
-			flags=6;
+			flags=2;
 			class Attributes
 			{
 				lock="UNLOCKED";
 			};
 			id=1071;
 			type="rhssaf_army_nsv_tripod";
-			atlOffset=0.00035572052;
+			atlOffset=2.5247006;
 		};
 		class Item137
 		{
@@ -34548,7 +34578,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1136;
-					atlOffset=1.0252361;
+					atlOffset=1.0252194;
 				};
 			};
 			class Attributes
@@ -35479,7 +35509,7 @@ class Mission
 					};
 					showWP="NEVER";
 					id=1173;
-					atlOffset=0.0036697388;
+					atlOffset=0.0036230087;
 				};
 			};
 			class Attributes
@@ -35847,7 +35877,7 @@ class Mission
 			};
 			id=1183;
 			type="rhsgref_ins_g_AGS30_TriPod";
-			atlOffset=0.001209259;
+			atlOffset=9.5367432e-007;
 		};
 		class Item150
 		{
